@@ -11,7 +11,7 @@ data "aws_ami" "amazon" {
     values = ["hvm"]
   }
 
-  owners = ["137112412989"] # Canonical
+  owners = ["036476392584"] # Canonical
 }
 
 resource "aws_instance" "devops" {
