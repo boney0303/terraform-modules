@@ -22,7 +22,7 @@ data "aws_ami" "amazon" {
 resource "aws_instance" "devops" {
   ami = data.aws_ami.amazon.id
   instance_type = "t2.micro"
-  vpc_security_group_ids = ["ssh-http-https-icmp",]
+  vpc_security_group_ids = ["sg-0ed94c2dfa02f6493",]
   subnet_id = "subnet-05978ee2148fccb88"
 
   tags = {
