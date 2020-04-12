@@ -1,3 +1,3 @@
 output "ec2_instance_id" {
-  value = "${aws_instance.devops.id}""
+  value = aws_instance.devops.id
 }

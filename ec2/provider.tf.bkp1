@@ -1,0 +1,8 @@
+provider "aws" {
+  region = var.region
+  shared_credentials_file = pathexpand("~/.aws/credentials")
+  profile = "TF-User"
+  assume_role {
+    role_arn = "arn:aws:iam::036476392584:role/EC2-Prod-Instance-Profile"
+  }
+}
