@@ -96,3 +96,9 @@ variable "http_tcp_listeners" {
   type        = any
   default     = []
 }
+
+variable "http_tcp_listeners_tags" {
+  description = "A map of tags to add to all http listeners"
+  type        = map(string)
+  default     = {}
+}

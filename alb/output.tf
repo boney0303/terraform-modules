@@ -1,13 +1,18 @@
-output "demo_project_alb_id" {
+output "alb_id" {
   description = "The ID and ARN of the load balancer we created."
-  value       = concat(aws_lb.demo_project_alb.*.id, [""])[0]
+  value       = try(aws_lb.demo_webapp_alb[0].id, "")
 }
-output "demo_project_alb_arn" {
+output "alb_arn" {
   description = "The ID and ARN of the load balancer we created."
-  value       = concat(aws_lb.demo_project_alb.*.arn, [""])[0]
+  value       = try(aws_lb.demo_webapp_alb[0].arn, "")
 }
-output "demo_project_alb_tg_arns" {
+output "alb_tg_arns" {
   description = "ARNs of the target groups. Useful for passing to your Auto Scaling group."
-  value       = aws_lb_target_group.demo_project_alb_tg.*.arn
+  value       = aws_lb_target_group.demo_webapp_alb_tg[*].arn
+}
+
+output "alb_tg_names" {
+  description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group"
+  value       = aws_lb_target_group.demo_webapp_alb_tg[*].name
 }
 
